@@ -1,0 +1,198 @@
+/* Estilos de la Pokédex roja clásica con paneles. */
+:root {
+    --pokedex-red: #dc0a2d;
+    --screen-blue: #98cb98;
+    --screen-dark: #232323;
+    --text-dark: #333;
+    --text-light: #fff;
+    --border-radius: 15px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.pokedex-container {
+    display: flex;
+    background-color: var(--pokedex-red);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 1000px;
+    width: 100%;
+    gap: 20px;
+}
+
+/* --- LADO IZQUIERDO --- */
+.pokedex-left {
+    flex: 1.5;
+    background: #b00722;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+}
+
+.pokedex-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.light {
+    width: 40px;
+    height: 40px;
+    background: #00bfff;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px #00bfff;
+}
+
+.pokedex-header h1 { color: white; font-size: 24px; letter-spacing: 2px; }
+
+.screen {
+    background: var(--screen-dark);
+    padding: 20px;
+    border-radius: 10px;
+    border: 4px solid #888;
+    flex: 1;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+button {
+    background-color: #ffcb05;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover { background-color: #ffdb4d; }
+
+#resultado {
+    color: white;
+    text-align: center;
+}
+
+.pokemon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+}
+
+.image-container {
+    background: var(--screen-blue);
+    border-radius: 10px;
+    border: 3px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Para posicionar el botón shiny */
+    margin-bottom: 15px;
+}
+
+img { width: 150px; height: 150px; cursor: grab; }
+img:active { cursor: grabbing; }
+
+/* Botón Shiny */
+#btn-shiny {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #ffcb05;
+    border: 1px solid #ffcb05;
+}
+#btn-shiny:hover { background-color: #555; }
+
+.types { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+.type-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.stats-container { text-align: left; margin-bottom: 15px; }
+.stat-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; font-size: 12px;}
+.stat-bar span { width: 80px; text-transform: uppercase; color: #aaa;}
+.stat-progress { flex: 1; background: #444; height: 8px; border-radius: 5px; }
+.stat-fill { background: #4caf50; height: 8px; border-radius: 5px; }
+
+.weaknesses h4 { margin-bottom: 10px; color: #ffcb05; text-align: left;}
+#p-debilidades { display: flex; flex-wrap: wrap; gap: 5px; }
+
+/* --- LADO DERECHO --- */
+.pokedex-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.panel {
+    background: #b00722;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    color: white;
+}
+
+.panel h3 { margin-bottom: 10px; font-size: 16px; }
+
+#zona-drop {
+    background: rgba(0,0,0,0.2);
+    border: 3px dashed #fff;
+    min-height: 100px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid-tools button { width: 100%; background: #333; color: white; }
+.grid-tools button:hover { background: #555; }
+
+.logs { font-size: 12px; }
+.info { margin-bottom: 5px; color: #ccc; }
+.text-blue { color: #00bfff; }
+.hidden { display: none; }
+
+@media (max-width: 768px) {
+    .pokedex-container { flex-direction: column; }
+}

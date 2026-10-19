@@ -1,0 +1,76 @@
+<!-- Estructura principal de la Pokédex con buscador, estadísticas y herramientas. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="pokedex-container">
+        <!-- Panel Izquierdo: Buscador y Pantalla -->
+        <div class="pokedex-left">
+            <div class="pokedex-header">
+                <div class="light"></div>
+                <h1>Pokédex</h1>
+            </div>
+
+            <div class="screen">
+                <div class="search-bar">
+                    <input type="text" id="nombre" placeholder="Buscar Pokémon...">
+                    <button id="btn-buscar">🔍</button>
+                </div>
+
+                <div id="resultado" class="hidden">
+                    <div class="pokemon-header">
+                        <h2 id="p-nombre">---</h2>
+                        <span id="p-id">#000</span>
+                    </div>
+                    
+                    <div class="image-container">
+                        <img id="pokemon-img" src="" alt="Pokémon" draggable="true">
+                        <!-- Botón para cambiar a Shiny -->
+                        <button id="btn-shiny" class="hidden">Ver Shiny</button>
+                    </div>
+
+                    <div class="types" id="p-tipos"></div>
+                    
+                    <div class="stats-container" id="p-stats">
+                        <!-- Aquí irán las estadísticas inyectadas por JS -->
+                    </div>
+                    <div class="weaknesses">
+                        <h4>Debilidades:</h4>
+                        <div id="p-debilidades"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Derecho: Herramientas -->
+        <div class="pokedex-right">
+            <div class="panel">
+                <h3>Tu Equipo (Arrastra aquí)</h3>
+                <div id="zona-drop"></div>
+            </div>
+
+            <div class="panel grid-tools">
+                <button id="btn-guardar">Guardar</button>
+                <button id="btn-cargar">Cargar</button>
+                <button id="btn-localizar">Radar GPS</button>
+                <button id="btn-worker">Calcular Poder</button>
+            </div>
+            
+            <div class="panel logs">
+                <p id="storage-msg" class="info">Listo para guardar.</p>
+                <p id="geo-msg" class="info">Geolocalización inactiva.</p>
+                <p id="worker-msg" class="info">Poder: En espera.</p>
+                <p id="sse-msg" class="info text-blue">Servidor: Conectado.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
